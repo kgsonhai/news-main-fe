@@ -1,0 +1,46 @@
+.Footer {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    padding: 10px 0;
+}
+
+.Song-Thumbnail {
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    object-fit: cover;
+}
+.Song-Title {
+    text-transform: capitalize;
+    margin-bottom: 0;
+}
+.Singer {
+    margin-top: 0;
+    margin-bottom: 32px;
+    font-size: 12px;
+    color: #333;
+}
+.Control-Button-Group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Control-Button-Group > * {
+    cursor: pointer;
+}
+.Prev-Button, .Next-Button {
+    width: 20px;
+}
+.Pause-Play-Button {
+    display: flex;
+    justify-content: center;
+    width: 14px;
+    height: 22px;
+    margin: 0 32px;
+}
+.Pause-Play-Button svg {
+    height: 22px;
+}

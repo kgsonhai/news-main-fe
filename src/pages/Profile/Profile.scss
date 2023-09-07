@@ -1,0 +1,122 @@
+.profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-container {
+  padding-top: 50px;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h3 {
+    font-family: Poppins-Bold;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    line-height: 1.2;
+    text-align: center;
+    width: 100%;
+    display: block;
+    padding-bottom: 40px;
+  }
+
+  .ant-form-item {
+    width: 80%;
+    margin-bottom: 50px;
+
+    .ant-btn {
+      width: 100%;
+      height: 40px;
+    }
+    .ant-btn-primary {
+      background-color: #57b846 !important;
+      font-family: Montserrat-Bold;
+      font-weight: bold;
+      font-size: 15px;
+      line-height: 1.5;
+      color: #fff;
+      text-transform: uppercase;
+      width: 100%;
+      height: 50px;
+      font-size: 17px;
+      border-radius: 25px;
+      background: #57b846;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 25px;
+      transition: all 0.4s;
+    }
+  }
+
+  .ant-input-affix-wrapper {
+    display: flex;
+    font-size: 15px;
+    line-height: 1.5;
+    color: black;
+    width: 100%;
+    height: 50px;
+    border-radius: 25px;
+    padding: 0 25px;
+
+    > input {
+      margin-left: 10px;
+    }
+  }
+
+  .ant-select {
+    .ant-select-selector {
+      height: 48px;
+      border-radius: 25px !important;
+    }
+    .ant-select-selection-placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  .ant-checkbox-wrapper {
+    font-size: 16px !important;
+  }
+  .css-t3ipsp-control,
+  .css-13cymwt-control {
+    min-height: 47px;
+    border-radius: 25px;
+
+    .css-1jqq78o-placeholder {
+      text-align: center;
+    }
+  }
+
+  .ant-select-selection-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ant-form-item-row {
+    display: flex;
+
+    .ant-form-item-label {
+      min-width: 150px;
+      padding-top: 10px;
+      text-align: left;
+    }
+  }
+
+  .ant-btn {
+    border-radius: 20px;
+    height: 45px;
+    width: 200px;
+    font-weight: bold;
+  }
+
+  .ant-select.ant-select-in-form-item {
+    width: 40%;
+  }
+}
