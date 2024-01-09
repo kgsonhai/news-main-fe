@@ -1,16 +1,17 @@
-import { useQuery } from "@tanstack/react-query";
 import { Form, Input, Select } from "antd";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { client } from "../../api/client";
 import ModalConfirm from "../../components/Modal/modal-confirm";
 import MultiSelect from "../../components/Select/multiSelect";
 import WithAuth from "../../hoc/withAuth";
-import "./Profile.scss";
 import useAuth from "../../hook/useAuth";
+import "./Profile.scss";
+import { useTranslation } from "react-i18next";
 
 let yearOfBirths = Array.from({ length: 104 }, (x, i) => i + 1920);
 
 const Profile = () => {
+  const { t } = useTranslation();
   const [categories, setCategories] = useState();
   const [isOpenModal, setOpenModal] = useState();
   const [optionSelected, setSelected] = useState();
@@ -76,27 +77,27 @@ const Profile = () => {
             categories: defaultOptionSelected,
           }}
         >
-          <h3>THÔNG TIN CÁ NHÂN</h3>
-          <Form.Item name="username" label="Tên đăng nhập">
+          <h3>{t("user-info")}</h3>
+          <Form.Item name="username" label={t("account-name")}>
             <Input
               disabled
               defaultValue={user?.username}
               prefix={<div type={"user"} />}
-              placeholder={"Tên đăng nhập"}
+              placeholder={t("account-name")}
             />
           </Form.Item>
           <Form.Item
             name="year_of_birth"
-            label="Năm sinh"
+            label={t("year-of-birth")}
             rules={[
               {
                 required: true,
-                message: "Chọn năm sinh",
+                message: t("select-year-of-birth"),
               },
             ]}
           >
             <Select
-              placeholder={"-- Năm sinh --"}
+              placeholder={`-- ${t("year-of-birth")} -- `}
               defaultValue={user?.year_of_birth}
             >
               {yearOfBirths.map((year) => (
@@ -105,12 +106,12 @@ const Profile = () => {
             </Select>
           </Form.Item>
           <Form.Item
-            label="Danh mục ưa thích"
+            label={t("favourite-category")}
             name="categories"
             rules={[
               {
                 required: true,
-                message: "Chọn ít nhất 1 danh mục ưa thích",
+                message: t("error-least-one-favourite-category"),
               },
             ]}
           >
@@ -120,14 +121,14 @@ const Profile = () => {
               value={optionSelected}
               isSelectAll={true}
               menuPlacement={"bottom"}
-              placeholder="Chọn danh mục"
+              placeholder={t("select-favorite-category")}
               defaultValue={optionSelected}
             />
           </Form.Item>
           <ModalConfirm
-            title="Cập nhật thông tin"
-            content="Bạn chắc chắc muốn lưu thay đổi này?"
-            buttonName="Cập nhật"
+            title={t("title-modal-update-info")}
+            content={t("content-modal-update-info")}
+            buttonName={t("updated")}
             isOpenModal={isOpenModal}
             setOpenModal={setOpenModal}
             handleSubmit={form.submit}

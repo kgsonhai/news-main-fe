@@ -1,11 +1,13 @@
 import { Menu } from "antd";
+import { useTranslation } from "react-i18next";
 import { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { client } from "../../api/client";
 import useAuth from "../../hook/useAuth";
 import "./Category.scss";
 
-export const CategoryBar = () => {
+export const CategoryBar = ({ selectedCategory, setSelectedCategory }) => {
+  const { t } = useTranslation();
   const { data: user } = useAuth();
   const isLogin = !!localStorage.getItem("token");
   const [categories, setCategories] = useState([]);
@@ -18,18 +20,31 @@ export const CategoryBar = () => {
     setCategories(data);
   }, [isLogin, user]);
 
+  const handleSelectedCategory = useCallback(
+    (key) => {
+      setSelectedCategory(key);
+    },
+    [setSelectedCategory]
+  );
+
   useEffect(() => {
     fetchCategories();
   }, [fetchCategories]);
 
   return (
     <div className={"Category"}>
-      <Menu>
+      <Menu selectedKeys={[selectedCategory]}>
         {categories?.map((category, index) => {
           return (
-            <Menu.Item key={index}>
+            <Menu.Item
+              onClick={() => handleSelectedCategory(index)}
+              key={index}
+              className={`${
+                index === selectedCategory ? "active-category" : ""
+              }`}
+            >
               <Link to={`/category/${category.name}`}>
-                {category.description}
+                {t(`${category.name}`)}
               </Link>
             </Menu.Item>
           );

@@ -1,6 +1,7 @@
 import { Button } from "antd";
 import { useCallback, useState } from "react";
 import { client } from "../../api/client";
+import { VerticalAlignBottomOutlined } from "@ant-design/icons";
 
 export const Crawler = () => {
   const [message, setMessage] = useState(null);
@@ -10,9 +11,17 @@ export const Crawler = () => {
   }, []);
 
   return (
-    <div>
-      <p>Bắt đầu phiên báo mới</p>
-      <Button type={"primary"} onClick={callCrawler}>
+    <div style={{ textAlign: "center", marginTop: "10px" }}>
+      <div style={{ fontSize: "30px", marginBottom: "15px" }}>
+        Bắt đầu phiên báo mới
+      </div>
+      <Button
+        type={"primary"}
+        shape="round"
+        icon={<VerticalAlignBottomOutlined />}
+        size="large"
+        onClick={callCrawler}
+      >
         Bắt đầu
       </Button>
       <p>{message}</p>

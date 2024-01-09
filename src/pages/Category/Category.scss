@@ -1,14 +1,54 @@
 .Category {
+  background-color: #fff; /* Set background color to white */
+  padding: 15px; /* Add padding for better spacing */
   display: flex;
+  align-items: center;
   justify-content: center;
-  align-items: center;
-}
+  // Style for the Menu component
+  .ant-menu {
+    background-color: #fff; /* Set background color for the menu */
+    border: none; /* Remove border from the menu */
+  }
 
-li {
-  font-size: 18px;
-}
+  // Style for Menu.Item
+  .ant-menu-item {
+    font-size: 20px;
+    margin-bottom: 0px !important;
+    display: inline-block; /* Display menu items inline */
+    margin: 0; /* Remove default margin */
+    color: #333; /* Set text color for menu items to a darker color */
+    font-family: "Arial", sans-serif; /* Change font family */
+    font-weight: bold; /* Make the font bold */
+    transition: color 0.3s; /* Add a smooth transition effect for color changes */
+    position: relative; /* Set position to relative for absolute positioning of the sliding underline */
+  }
 
-.ant-menu-overflow {
-  display: flex;
-  align-items: center;
+  .ant-menu-item:hover {
+    color: #3498db; /* Change text color on hover to the blue accent */
+  }
+
+  .ant-menu-item a {
+    color: inherit; /* Inherit text color from the parent */
+    text-decoration: none; /* Remove default underline */
+  }
+
+  // Sliding underline effect
+  .ant-menu-item a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #3498db; /* Set the color of the sliding underline */
+    transition: width 0.3s; /* Add a smooth transition effect for the sliding underline */
+  }
+
+  .ant-menu-item:hover a::after {
+    width: 100%; /* Expand the sliding underline to 100% on hover */
+  }
+
+  .active-category {
+    color: red !important;
+  }
 }

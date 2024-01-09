@@ -1,0 +1,41 @@
+.MainPage {
+  padding-top: 60px;
+  padding-bottom: 100px;
+  width: 80vw;
+  margin: 0 auto;
+}
+
+.articles-with-column {
+  display: flex;
+  flex-direction: column;
+}
+
+$current-height: 900px;
+
+.articles-column {
+  margin-bottom: 30px;
+  height: $current-height;
+}
+
+.articles-column__1 {
+  height: $current-height * 1.25;
+
+  .line-clamp {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    font-size: 18px;
+  }
+}
+
+h2 {
+  text-align: center;
+  font-family: "Playfair Display";
+  font-size: 40px;
+  font-weight: 600;
+  font-style: italic;
+  padding: 20px 0;
+}

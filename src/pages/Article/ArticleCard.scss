@@ -1,0 +1,33 @@
+.line-clamp {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  font-size: 18px;
+}
+
+.article-card {
+  height: 100%;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+
+  .ant-card-head-title {
+    font-size: 20px;
+    white-space: normal;
+  }
+
+  img {
+    width: auto;
+    height: 80%;
+    object-fit: cover;
+  }
+
+  .ant-card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+}
